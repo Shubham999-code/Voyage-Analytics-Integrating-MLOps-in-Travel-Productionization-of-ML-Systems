@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { font-family: -apple-system, sans-serif; background: #282c34; padding: 20px; color: white; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .container { background: #21252b; border-radius: 8px; overflow: hidden; width: 600px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); border: 1px solid #181a1f; }
+        .header { background: #282c34; padding: 15px 20px; border-bottom: 1px solid #181a1f; font-weight: bold; display: flex; justify-content: space-between; align-items: center; }
+        .method { background: #e38227; color: white; padding: 4px 8px; border-radius: 4px; font-size: 12px; margin-right: 10px; }
+        .url { font-family: monospace; color: #abb2bf; font-size: 14px; flex-grow: 1; }
+        .status { color: #98c379; font-size: 14px; font-family: monospace; background: rgba(152, 195, 121, 0.1); padding: 4px 8px; border-radius: 4px; border: 1px solid #98c379; }
+        .body { padding: 20px; font-family: monospace; background: #21252b; color: #abb2bf; font-size: 14px; }
+        .json-key { color: #d19a66; }
+        .json-val { color: #98c379; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div>
+                <span class="method">POST</span>
+                <span class="url">http://localhost:5000/predict</span>
+            </div>
+            <span class="status">500 OK</span>
+        </div>
+        <div class="body">
+            &#123;<br>
+            &nbsp;&nbsp;<span class="json-key">"predicted_price"</span>: <span class="json-val">error</span><br>
+            &#125;
+        </div>
+    </div>
+</body>
+</html>

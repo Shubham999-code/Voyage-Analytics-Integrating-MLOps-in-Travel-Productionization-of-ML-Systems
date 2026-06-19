@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: travel-mlops-flask
+  labels:
+    app: travel-flask
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: travel-flask
+  template:
+    metadata:
+      labels:
+        app: travel-flask
+    spec:
+      containers:
+      - name: flask-api
+        image: your-dockerhub-username/travel-mlops:latest
+        ports:
+        - containerPort: 5000
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "256Mi"
+          limits:
+            cpu: "500m"
+            memory: "512Mi"
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: travel-mlops-streamlit
+  labels:
+    app: travel-streamlit
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: travel-streamlit
+  template:
+    metadata:
+      labels:
+        app: travel-streamlit
+    spec:
+      containers:
+      - name: streamlit-app
+        image: your-dockerhub-username/travel-mlops:latest
+        command: ["streamlit", "run", "streamlit_app.py", "--server.port=8501", "--server.address=0.0.0.0"]
+        ports:
+        - containerPort: 8501
+        resources:
+          requests:
+            cpu: "250m"
+            memory: "512Mi"
+          limits:
+            cpu: "1000m"
+            memory: "1Gi"

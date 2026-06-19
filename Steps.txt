@@ -1,0 +1,53 @@
+Travel MLOps Capstone Project: Walkthrough
+We have successfully built out the components for your MLOps Capstone project! The codebase is now structured correctly and includes all required files for machine learning, API development, containerization, and orchestration.
+
+What Was Accomplished
+Machine Learning Models (ML_Modeling.ipynb)
+
+We generated a fully documented Jupyter/Colab notebook that loads your users.csv, flights.csv, and hotels.csv data.
+It trains a Random Forest Regression model (flight prices), a Random Forest Classification model (gender), and builds a Recommender System (hotels).
+Local MLflow tracking (sqlite:///mlflow.db) is integrated into the notebook to track runs, parameters, and models.
+Web Services (app.py & streamlit_app.py)
+
+Flask API (app.py): A RESTful service that loads the saved flight_price_model.joblib and exposes a /predict POST endpoint for real-time inference.
+Streamlit App (streamlit_app.py): An interactive dashboard to get hotel recommendations based on destination, plus data visualizations of the dataset.
+TIP
+
+Here is a quick demonstration of the fully functioning Travel Recommendation UI we just built and ran via Docker:
+Streamlit Application Demo
+Review
+Streamlit Application Demo
+
+Infrastructure as Code
+
+Docker (Dockerfile): A unified multi-purpose Dockerfile to easily containerize and run either the Flask API or Streamlit application.
+
+Kubernetes (kubernetes/): Deployment and Service configurations to scale your API and UI on a K8s cluster.
+
+Airflow (airflow/dags/model_training_dag.py): An automated workflow DAG that uses papermill to schedule and execute your Jupyter notebook periodically.
+
+Jenkins (Jenkinsfile): A complete CI/CD pipeline to test, build the Docker image, push it to Docker Hub, and roll out to Kubernetes.
+
+How to Proceed with Submission
+Upload Notebook to Colab:
+
+Upload ML_Modeling.ipynb along with users.csv, flights.csv, and hotels.csv to Google Colab.
+Run the notebook to generate the .joblib model files and explore the MLflow tracking UI.
+This will fulfill your requirement for a single Colab Notebook covering regression, classification, and recommendation.
+
+Run Apps Locally & Take Screenshots:
+
+Put the generated .joblib files into your local project directory.
+Install dependencies: pip install -r requirements.txt
+Run Flask: python app.py (Test with Postman)
+Run Streamlit: streamlit run streamlit_app.py
+Take screenshots of these running successfully for your Google Doc documentation.
+Deploy & Record Video:
+
+Follow the instructions in the newly generated README.md to run the Docker, Kubernetes, and Airflow commands on your local environment (or cloud VM).
+Record your 15-40 minute video presentation explaining the flow from modeling to deployment, focusing heavily on the regression model as required.
+GitHub Repository:
+
+Initialize a git repository in c:\Users\Admin\Downloads\project.
+Commit all these generated files and push them to a single public GitHub repository to include in your final submission.
+Good luck with your capstone presentation! Let me know if you need any adjustments to the models or configurations.

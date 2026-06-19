@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: travel-flask-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: travel-flask
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5000
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: travel-streamlit-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: travel-streamlit
+  ports:
+    - protocol: TCP
+      port: 8501
+      targetPort: 8501
